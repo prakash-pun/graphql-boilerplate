@@ -1,0 +1,23 @@
+{
+  "name": "graphql-boilerplate",
+  "version": "1.0.0",
+  "description": "graphql boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakash-pun7/my-graphql-boilerplate.git"
+  },
+  "keywords": [
+    "graphql",
+    "boilerplate"
+  ],
+  "author": "Prakash Pun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prakash-pun7/my-graphql-boilerplate/issues"
+  },
+  "homepage": "https://github.com/prakash-pun7/my-graphql-boilerplate#readme"
+}
