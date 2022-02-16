@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020", "esnext.asynciterable"],
+    "types": ["node"],
+    "module": "commonjs",
+    "target": "es6",
+    "downlevelIteration": true,
+    "incremental": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "outDir": "build",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"],
+      "@helpers": ["./src/helpers"],
+      "@config": ["./src/config"],
+      "@constants": ["./src/constants"],
+      "@interfaces": ["./src/interfaces"],
+      "@middlewares": ["./src/middlewares"],
+      "@models": ["./src/models"],
+      "@resolvers": ["./src/resolvers"],
+      "@schemas": ["./src/schemas"]
+    }
+  },
+  "include": ["src", "src/**/*.ts"],
+  "exclude": ["node_modules"],
+  "types": ["node"]
+}
