@@ -7,8 +7,26 @@
     "start": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
     "dev": "set NODE_PATH=./build && ts-node -r tsconfig-paths/register build/index.js",
     "build": "tsc -p .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --config jest.config.js",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,12 +43,17 @@
   },
   "homepage": "https://github.com/prakash-pun7/my-graphql-boilerplate#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "@types/node": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-plugin-jsdoc": "^37.9.1",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
+    "ts-jest": "^27.1.3",
     "ts-node": "^10.5.0",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.12.0",
