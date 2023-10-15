@@ -1,12 +1,10 @@
 import "reflect-metadata";
-import express, { Express } from "express";
-import { ApolloServer } from "apollo-server-express";
-import cors from "cors";
+import { ApolloServer } from "@apollo/server";
+import "reflect-metadata";
 import { graphqlUploadExpress } from "graphql-upload";
-import {
-  ApolloServerPluginLandingPageGraphQLPlayground,
-  ApolloServerPluginInlineTraceDisabled,
-} from "apollo-server-core";
+import { startStandaloneServer } from '@apollo/server/standalone';
+import express, { Express } from "express";
+import cors from "cors";
 import { createSchema } from "@helpers";
 
 /**
@@ -26,31 +24,17 @@ const createServer = async (): Promise<Express> => {
 
   const schema = await createSchema();
 
+ 
   const apolloServer = new ApolloServer({
     schema,
-    debug: false,
-    context: ({ req }) => {
-      return { req };
-    },
-    formatError(err) {
-      return {
-        message: err.message,
-        code: err.originalError,
-        locations: err.locations,
-        path: err.path,
-      };
-    },
-    plugins: [
-      ApolloServerPluginLandingPageGraphQLPlayground({}),
-      ApolloServerPluginInlineTraceDisabled(),
-    ],
   });
 
   await apolloServer.start();
 
+
   app.use(graphqlUploadExpress());
   app.use(express.static("public"));
-  apolloServer.applyMiddleware({ app });
+  // apolloServer.applyMiddleware({ app });
 
   return app;
 };

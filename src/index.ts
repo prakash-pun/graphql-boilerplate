@@ -1,7 +1,9 @@
 import "dotenv/config";
 import { SERVER } from "./constant/text.constant";
 import createServer from "./server";
-
+/**
+ * Start Server
+ */
 const startServer = async () => {
   const app = createServer();
 
